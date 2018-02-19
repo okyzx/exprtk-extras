@@ -24,6 +24,7 @@
 
 #include "exprtk.hpp"
 
+
 class exprtk_gnuplot_fx;
 
 class exprtk_fx_curve
