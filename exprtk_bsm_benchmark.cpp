@@ -18,7 +18,9 @@
 
 #include <cstdio>
 #include <string>
+
 #include "exprtk.hpp"
+
 
 static const std::size_t rounds = 20000000;
 
@@ -114,20 +116,15 @@ void black_scholes_merton_model()
    symbol_table.add_constant("e",e);
    symbol_table.add_stringvar("callput_flag",callput_flag);
 
-   expression_t bsm_expression;
-   bsm_expression.register_symbol_table(symbol_table);
-
-   expression_t bsm_expression_opt1;
-   bsm_expression_opt1.register_symbol_table(symbol_table);
-
-   expression_t bsm_expression_opt2;
-   bsm_expression_opt2.register_symbol_table(symbol_table);
+   expression_t bsm_expression     (symbol_table);
+   expression_t bsm_expression_opt1(symbol_table);
+   expression_t bsm_expression_opt2(symbol_table);
 
    parser_t parser;
 
-   parser.compile(bsm_model_program,     bsm_expression     );
-   parser.compile(bsm_model_program_opt1,bsm_expression_opt1);
-   parser.compile(bsm_model_program_opt2,bsm_expression_opt2);
+   parser.compile(bsm_model_program,      bsm_expression     );
+   parser.compile(bsm_model_program_opt1, bsm_expression_opt1);
+   parser.compile(bsm_model_program_opt2, bsm_expression_opt2);
 
    {
       exprtk::timer timer;
@@ -264,10 +261,10 @@ void bsm_native()
       v = params.v;
 
       callput_flag = "call";
-      total += bsm_model(callput_flag,s,x,t,r,v);
+      total += bsm_model(callput_flag, s, x, t, r, v);
 
       callput_flag = "put";
-      total += bsm_model(callput_flag,s,x,t,r,v);
+      total += bsm_model(callput_flag, s, x, t, r, v);
    }
 
    timer.stop();
