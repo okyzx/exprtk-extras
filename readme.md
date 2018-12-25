@@ -31,16 +31,17 @@ The ExprTk Extras implementation is fully compatible with the following C++ comp
 |08  | GNUplot single curve example                     |[exprtk_gnuplot.cpp](https://github.com/ArashPartow/exprtk-extras/blob/master/exprtk_gnuplot.cpp)                                              |
 |09  | GNUplot multi-curve example                      |[exprtk_gnuplot_multi.cpp](https://github.com/ArashPartow/exprtk-extras/blob/master/exprtk_gnuplot_multi.cpp)                                  |
 |10  | Mandelbrot fractal generator                     |[exprtk_mandelbrot.cpp](https://github.com/ArashPartow/exprtk-extras/blob/master/exprtk_mandelbrot.cpp)                                        |
-|11  | Approximation of Pi via the Monte-Carlo method   |[exprtk_montecarlo_pi.cpp](https://github.com/ArashPartow/exprtk-extras/blob/master/exprtk_montecarlo_pi.cpp)                                  |
-|12  | Approximation of Pi via Wiener process           |[exprtk_wiener_process_pi.cpp](https://github.com/ArashPartow/exprtk-extras/blob/master/exprtk_wiener_process_pi.cpp)                          |
-|13  | Maximum subarray sum (Kadane's algorithm)        |[exprtk_max_subarray_sum.cpp](https://github.com/ArashPartow/exprtk-extras/blob/master/exprtk_max_subarray_sum.cpp)                            |
-|14  | Nth-root via the bisection method                |[exprtk_nthroot_bisection.cpp](https://github.com/ArashPartow/exprtk-extras/blob/master/exprtk_nthroot_bisection.cpp)                          |
-|15  | Sieve of Eratosthenes                            |[exprtk_prime_sieve.cpp](https://github.com/ArashPartow/exprtk-extras/blob/master/exprtk_prime_sieve.cpp)                                      |
-|16  | ExprTk Read-Evaluate-Print-Loop (REPL)           |[exprtk_repl.cpp](https://github.com/ArashPartow/exprtk-extras/blob/master/exprtk_repl.cpp)                                                    |
-|17  | Skeleton for string APIs                         |[exprtk_str_funcs.hpp](https://github.com/ArashPartow/exprtk-extras/blob/master/exprtk_str_funcs.hpp)                                          |
-|18  | Sum of prime factors for first N numbers         |[exprtk_sumofprimes.cpp](https://github.com/ArashPartow/exprtk-extras/blob/master/exprtk_sumofprimes.cpp)                                      |
-|19  | Test expression generator                        |[exprtk_testgen.cpp](https://github.com/ArashPartow/exprtk-extras/blob/master/exprtk_testgen.cpp)                                              |
-|20  | Truth table generator from arbitrary expressions |[exprtk_truthtable_gen.cpp](https://github.com/ArashPartow/exprtk-extras/blob/master/exprtk_truthtable_gen.cpp)                                |
-|21  | Vector processing benchmark                      |[exprtk_vector_benchmark.cpp](https://github.com/ArashPartow/exprtk-extras/blob/master/exprtk_vector_benchmark.cpp)                            |
-|22  | Multi-threaded vector processing benchmark       |[exprtk_vector_benchmark_multithreaded.cpp](https://github.com/ArashPartow/exprtk-extras/blob/master/exprtk_vector_benchmark_multithreaded.cpp)|
-|23  | L-Norm of vectors                                |[exprtk_vectornorm.cpp](https://github.com/ArashPartow/exprtk-extras/blob/master/exprtk_vectornorm.cpp)                                        |
+|11  | Approximation of e via the Monte-Carlo method    |[exprtk_montecarlo_e.cpp](https://github.com/ArashPartow/exprtk-extras/blob/master/exprtk_montecarlo_e.cpp)                                    |
+|12  | Approximation of Pi via the Monte-Carlo method   |[exprtk_montecarlo_pi.cpp](https://github.com/ArashPartow/exprtk-extras/blob/master/exprtk_montecarlo_pi.cpp)                                  |
+|13  | Approximation of Pi via Wiener process           |[exprtk_wiener_process_pi.cpp](https://github.com/ArashPartow/exprtk-extras/blob/master/exprtk_wiener_process_pi.cpp)                          |
+|14  | Maximum subarray sum (Kadane's algorithm)        |[exprtk_max_subarray_sum.cpp](https://github.com/ArashPartow/exprtk-extras/blob/master/exprtk_max_subarray_sum.cpp)                            |
+|15  | Nth-root via the bisection method                |[exprtk_nthroot_bisection.cpp](https://github.com/ArashPartow/exprtk-extras/blob/master/exprtk_nthroot_bisection.cpp)                          |
+|16  | Sieve of Eratosthenes                            |[exprtk_prime_sieve.cpp](https://github.com/ArashPartow/exprtk-extras/blob/master/exprtk_prime_sieve.cpp)                                      |
+|17  | ExprTk Read-Evaluate-Print-Loop (REPL)           |[exprtk_repl.cpp](https://github.com/ArashPartow/exprtk-extras/blob/master/exprtk_repl.cpp)                                                    |
+|18  | Skeleton for string APIs                         |[exprtk_str_funcs.hpp](https://github.com/ArashPartow/exprtk-extras/blob/master/exprtk_str_funcs.hpp)                                          |
+|19  | Sum of prime factors for first N numbers         |[exprtk_sumofprimes.cpp](https://github.com/ArashPartow/exprtk-extras/blob/master/exprtk_sumofprimes.cpp)                                      |
+|20  | Test expression generator                        |[exprtk_testgen.cpp](https://github.com/ArashPartow/exprtk-extras/blob/master/exprtk_testgen.cpp)                                              |
+|21  | Truth table generator from arbitrary expressions |[exprtk_truthtable_gen.cpp](https://github.com/ArashPartow/exprtk-extras/blob/master/exprtk_truthtable_gen.cpp)                                |
+|22  | Vector processing benchmark                      |[exprtk_vector_benchmark.cpp](https://github.com/ArashPartow/exprtk-extras/blob/master/exprtk_vector_benchmark.cpp)                            |
+|23  | Multi-threaded vector processing benchmark       |[exprtk_vector_benchmark_multithreaded.cpp](https://github.com/ArashPartow/exprtk-extras/blob/master/exprtk_vector_benchmark_multithreaded.cpp)|
+|24  | L-Norm of vectors                                |[exprtk_vectornorm.cpp](https://github.com/ArashPartow/exprtk-extras/blob/master/exprtk_vectornorm.cpp)                                        |
