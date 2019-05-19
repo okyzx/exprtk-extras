@@ -3226,6 +3226,7 @@ namespace exprtk
                else if ((t0.type == lexer::token::e_rbracket   ) && (t1.type == lexer::token::e_symbol     )) match = true;
                else if ((t0.type == lexer::token::e_rcrlbracket) && (t1.type == lexer::token::e_symbol     )) match = true;
                else if ((t0.type == lexer::token::e_rsqrbracket) && (t1.type == lexer::token::e_symbol     )) match = true;
+               else if ((t0.type == lexer::token::e_symbol     ) && (t1.type == lexer::token::e_symbol     )) match = true;
 
                return (match) ? 1 : -1;
             }
@@ -4243,13 +4244,18 @@ namespace exprtk
       };
 
       type_store()
-      : size(0),
-        data(0),
+      : data(0),
+        size(0),
         type(e_unknown)
       {}
 
+      union
+      {
+          void*  data;
+          T*     vec_data;
+      };
+
       std::size_t size;
-      void*       data;
       store_type  type;
 
       class parameter_list
@@ -11550,6 +11556,7 @@ namespace exprtk
                   ts.size = vi->size();
                   ts.data = vi->vds().data();
                   ts.type = type_store_t::e_vector;
+                  vi->vec()->vec_holder().set_ref(&ts.vec_data);
                }
                #ifndef exprtk_disable_string_capabilities
                else if (is_generally_string_node(arg_list_[i]))
@@ -26621,7 +26628,7 @@ namespace exprtk
 
                return result;
             }
-            else if (details::is_null_node(condition))
+            else if (details::is_null_node(condition) || (0 == condition))
             {
                free_node(*node_allocator_, initialiser);
                free_node(*node_allocator_,   condition);
