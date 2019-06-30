@@ -580,53 +580,64 @@ namespace exprtk
 
       template <typename Iterator, typename Compare>
       inline bool match_impl(const Iterator pattern_begin,
-                             const Iterator pattern_end,
-                             const Iterator data_begin,
-                             const Iterator data_end,
+                             const Iterator pattern_end  ,
+                             const Iterator data_begin   ,
+                             const Iterator data_end     ,
                              const typename std::iterator_traits<Iterator>::value_type& zero_or_more,
-                             const typename std::iterator_traits<Iterator>::value_type& zero_or_one)
+                             const typename std::iterator_traits<Iterator>::value_type& zero_or_one )
       {
-         Iterator d_itr = data_begin;
-         Iterator p_itr = pattern_begin;
+         const Iterator null_itr(0);
 
-         while ((p_itr != pattern_end) && (d_itr != data_end))
+         Iterator d_itr    = data_begin;
+         Iterator p_itr    = pattern_begin;
+         Iterator tb_p_itr = null_itr;
+         Iterator tb_d_itr = null_itr;
+
+         while (d_itr != data_end)
          {
             if (zero_or_more == *p_itr)
             {
-               while ((p_itr != pattern_end) && (*p_itr == zero_or_more || *p_itr == zero_or_one))
+               while ((pattern_end != p_itr) && ((zero_or_more == *p_itr) || (zero_or_one == *p_itr)))
                {
                   ++p_itr;
                }
 
-               if (p_itr == pattern_end)
+               if (pattern_end == p_itr)
                   return true;
 
-               const typename std::iterator_traits<Iterator>::value_type c = *(p_itr++);
+               const typename std::iterator_traits<Iterator>::value_type c = *(p_itr);
 
-               while ((d_itr != data_end) && !Compare::cmp(c,*d_itr))
+               while ((data_end != d_itr) && !Compare::cmp(c,*d_itr))
                {
                   ++d_itr;
                }
 
-               ++d_itr;
+               tb_d_itr = ++p_itr;
+               tb_p_itr = d_itr;
+
+               continue;
             }
-            else if ((*p_itr == zero_or_one) || Compare::cmp(*p_itr, *d_itr))
+            else if (!Compare::cmp(*p_itr, *d_itr) && (zero_or_one != *p_itr))
             {
-               ++d_itr;
-               ++p_itr;
+               if (null_itr == tb_d_itr)
+                  return false;
+
+               d_itr = tb_p_itr++;
+               p_itr = tb_d_itr;
+
+               continue;
             }
-            else
-               return false;
+
+            p_itr++;
+            d_itr++;
          }
 
-         if (d_itr != data_end)
-            return false;
-         else if (p_itr == pattern_end)
-            return true;
-         else if ((zero_or_more == *p_itr) || (zero_or_one == *p_itr))
+         while ((pattern_end != p_itr) && ((zero_or_more == *p_itr) || (zero_or_one == *p_itr)))
+         {
             ++p_itr;
+         }
 
-         return pattern_end == p_itr;
+         return (pattern_end == p_itr);
       }
 
       inline bool wc_match(const std::string& wild_card,
