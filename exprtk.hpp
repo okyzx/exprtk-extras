@@ -3086,7 +3086,7 @@ namespace exprtk
       {
       public:
 
-         token_joiner(const std::size_t& stride)
+         explicit token_joiner(const std::size_t& stride)
          : stride_(stride)
          {}
 
@@ -3251,7 +3251,7 @@ namespace exprtk
          {
          public:
 
-            operator_joiner(const std::size_t& stride)
+            explicit operator_joiner(const std::size_t& stride)
             : token_joiner(stride)
             {}
 
@@ -4993,7 +4993,7 @@ namespace exprtk
          template <typename T>
          inline T process(const operator_type operation, const T arg0, const T arg1)
          {
-            return exprtk::details::numeric::details::process_impl(operation,arg0,arg1);
+            return exprtk::details::numeric::details::process_impl(operation, arg0, arg1);
          }
       }
 
@@ -5004,42 +5004,42 @@ namespace exprtk
 
          enum node_type
          {
-            e_none         , e_null         , e_constant     , e_unary        ,
-            e_binary       , e_binary_ext   , e_trinary      , e_quaternary   ,
-            e_vararg       , e_conditional  , e_while        , e_repeat       ,
-            e_for          , e_switch       , e_mswitch      , e_return       ,
-            e_retenv       , e_variable     , e_stringvar    , e_stringconst  ,
-            e_stringvarrng , e_cstringvarrng, e_strgenrange  , e_strconcat    ,
-            e_stringvarsize, e_strswap      , e_stringsize   , e_stringvararg ,
-            e_function     , e_vafunction   , e_genfunction  , e_strfunction  ,
-            e_strcondition , e_strccondition, e_add          , e_sub          ,
-            e_mul          , e_div          , e_mod          , e_pow          ,
-            e_lt           , e_lte          , e_gt           , e_gte          ,
-            e_eq           , e_ne           , e_and          , e_nand         ,
-            e_or           , e_nor          , e_xor          , e_xnor         ,
-            e_in           , e_like         , e_ilike        , e_inranges     ,
-            e_ipow         , e_ipowinv      , e_abs          , e_acos         ,
-            e_acosh        , e_asin         , e_asinh        , e_atan         ,
-            e_atanh        , e_ceil         , e_cos          , e_cosh         ,
-            e_exp          , e_expm1        , e_floor        , e_log          ,
-            e_log10        , e_log2         , e_log1p        , e_neg          ,
-            e_pos          , e_round        , e_sin          , e_sinc         ,
-            e_sinh         , e_sqrt         , e_tan          , e_tanh         ,
-            e_cot          , e_sec          , e_csc          , e_r2d          ,
-            e_d2r          , e_d2g          , e_g2d          , e_notl         ,
-            e_sgn          , e_erf          , e_erfc         , e_ncdf         ,
-            e_frac         , e_trunc        , e_uvouv        , e_vov          ,
-            e_cov          , e_voc          , e_vob          , e_bov          ,
-            e_cob          , e_boc          , e_vovov        , e_vovoc        ,
-            e_vocov        , e_covov        , e_covoc        , e_vovovov      ,
-            e_vovovoc      , e_vovocov      , e_vocovov      , e_covovov      ,
-            e_covocov      , e_vocovoc      , e_covovoc      , e_vococov      ,
-            e_sf3ext       , e_sf4ext       , e_nulleq       , e_strass       ,
-            e_vector       , e_vecelem      , e_rbvecelem    , e_rbveccelem   ,
-            e_vecdefass    , e_vecvalass    , e_vecvecass    , e_vecopvalass  ,
-            e_vecopvecass  , e_vecfunc      , e_vecvecswap   , e_vecvecineq   ,
-            e_vecvalineq   , e_valvecineq   , e_vecvecarith  , e_vecvalarith  ,
-            e_valvecarith  , e_vecunaryop   , e_break        , e_continue     ,
+            e_none          , e_null          , e_constant    , e_unary        ,
+            e_binary        , e_binary_ext    , e_trinary     , e_quaternary   ,
+            e_vararg        , e_conditional   , e_while       , e_repeat       ,
+            e_for           , e_switch        , e_mswitch     , e_return       ,
+            e_retenv        , e_variable      , e_stringvar   , e_stringconst  ,
+            e_stringvarrng  , e_cstringvarrng , e_strgenrange , e_strconcat    ,
+            e_stringvarsize , e_strswap       , e_stringsize  , e_stringvararg ,
+            e_function      , e_vafunction    , e_genfunction , e_strfunction  ,
+            e_strcondition  , e_strccondition , e_add         , e_sub          ,
+            e_mul           , e_div           , e_mod         , e_pow          ,
+            e_lt            , e_lte           , e_gt          , e_gte          ,
+            e_eq            , e_ne            , e_and         , e_nand         ,
+            e_or            , e_nor           , e_xor         , e_xnor         ,
+            e_in            , e_like          , e_ilike       , e_inranges     ,
+            e_ipow          , e_ipowinv       , e_abs         , e_acos         ,
+            e_acosh         , e_asin          , e_asinh       , e_atan         ,
+            e_atanh         , e_ceil          , e_cos         , e_cosh         ,
+            e_exp           , e_expm1         , e_floor       , e_log          ,
+            e_log10         , e_log2          , e_log1p       , e_neg          ,
+            e_pos           , e_round         , e_sin         , e_sinc         ,
+            e_sinh          , e_sqrt          , e_tan         , e_tanh         ,
+            e_cot           , e_sec           , e_csc         , e_r2d          ,
+            e_d2r           , e_d2g           , e_g2d         , e_notl         ,
+            e_sgn           , e_erf           , e_erfc        , e_ncdf         ,
+            e_frac          , e_trunc         , e_uvouv       , e_vov          ,
+            e_cov           , e_voc           , e_vob         , e_bov          ,
+            e_cob           , e_boc           , e_vovov       , e_vovoc        ,
+            e_vocov         , e_covov         , e_covoc       , e_vovovov      ,
+            e_vovovoc       , e_vovocov       , e_vocovov     , e_covovov      ,
+            e_covocov       , e_vocovoc       , e_covovoc     , e_vococov      ,
+            e_sf3ext        , e_sf4ext        , e_nulleq      , e_strass       ,
+            e_vector        , e_vecelem       , e_rbvecelem   , e_rbveccelem   ,
+            e_vecdefass     , e_vecvalass     , e_vecvecass   , e_vecopvalass  ,
+            e_vecopvecass   , e_vecfunc       , e_vecvecswap  , e_vecvecineq   ,
+            e_vecvalineq    , e_valvecineq    , e_vecvecarith , e_vecvalarith  ,
+            e_valvecarith   , e_vecunaryop    , e_break       , e_continue     ,
             e_swap
          };
 
@@ -6700,7 +6700,7 @@ namespace exprtk
 
          template <typename Allocator,
                    template <typename, typename> class Sequence>
-         switch_node(const Sequence<expression_ptr,Allocator>& arg_list)
+         explicit switch_node(const Sequence<expression_ptr,Allocator>& arg_list)
          {
             if (1 != (arg_list.size() & 1))
                return;
@@ -6778,7 +6778,7 @@ namespace exprtk
 
          template <typename Allocator,
                    template <typename, typename> class Sequence>
-         switch_n_node(const Sequence<expression_ptr,Allocator>& arg_list)
+         explicit switch_n_node(const Sequence<expression_ptr,Allocator>& arg_list)
          : switch_node<T>(arg_list)
          {}
 
@@ -6797,7 +6797,7 @@ namespace exprtk
 
          template <typename Allocator,
                    template <typename, typename> class Sequence>
-         multi_switch_node(const Sequence<expression_ptr,Allocator>& arg_list)
+         explicit multi_switch_node(const Sequence<expression_ptr,Allocator>& arg_list)
          {
             if (0 != (arg_list.size() & 1))
                return;
@@ -6892,7 +6892,7 @@ namespace exprtk
          : value_(&null_value)
          {}
 
-         variable_node(T& v)
+         explicit variable_node(T& v)
          : value_(&v)
          {}
 
@@ -7115,7 +7115,7 @@ namespace exprtk
          typedef vector_node<T>*     vector_node_ptr;
          typedef vec_data_store<T>             vds_t;
 
-         vector_node(vector_holder_t* vh)
+         explicit vector_node(vector_holder_t* vh)
          : vector_holder_(vh),
            vds_((*vector_holder_).size(),(*vector_holder_)[0])
          {
@@ -8032,8 +8032,8 @@ namespace exprtk
                range_t& range1 = str1_range_ptr_->range_ref();
 
                if (
-                    range0(str0_r0,str0_r1,str0_base_ptr_->size()) &&
-                    range1(str1_r0,str1_r1,str1_base_ptr_->size())
+                    range0(str0_r0, str0_r1, str0_base_ptr_->size()) &&
+                    range1(str1_r0, str1_r1, str1_base_ptr_->size())
                   )
                {
                   const std::size_t size0 = (str0_r1 - str0_r0) + 1;
@@ -8249,8 +8249,8 @@ namespace exprtk
                range_t& range1 = (*str1_range_ptr_);
 
                if (
-                    range0(str0_r0,str0_r1,str0_base_ptr_->size()) &&
-                    range1(str1_r0,str1_r1,str1_base_ptr_->size())
+                    range0(str0_r0, str0_r1, str0_base_ptr_->size()) &&
+                    range1(str1_r0, str1_r1, str1_base_ptr_->size())
                   )
                {
                   const std::size_t size0    = range0.cache_size();
@@ -8370,7 +8370,7 @@ namespace exprtk
          typedef expression_node <T>* expression_ptr;
          typedef string_base_node<T>*   str_base_ptr;
 
-         string_size_node(expression_ptr brnch)
+         explicit string_size_node(expression_ptr brnch)
          : branch_(brnch),
            branch_deletable_(branch_deletable(branch_)),
            str_base_ptr_(0)
@@ -8971,7 +8971,7 @@ namespace exprtk
 
          template <typename Allocator,
                    template <typename, typename> class Sequence>
-         str_vararg_node(const Sequence<expression_ptr,Allocator>& arg_list)
+         explicit str_vararg_node(const Sequence<expression_ptr,Allocator>& arg_list)
          : final_node_(arg_list.back()),
            final_deletable_(branch_deletable(final_node_)),
            initialised_(false),
@@ -9437,7 +9437,7 @@ namespace exprtk
 
          template <typename Allocator,
                    template <typename, typename> class Sequence>
-         vararg_node(const Sequence<expression_ptr,Allocator>& arg_list)
+         explicit vararg_node(const Sequence<expression_ptr,Allocator>& arg_list)
          {
             arg_list_     .resize(arg_list.size());
             delete_branch_.resize(arg_list.size());
@@ -9497,7 +9497,7 @@ namespace exprtk
 
          template <typename Allocator,
                    template <typename, typename> class Sequence>
-         vararg_varnode(const Sequence<expression_ptr,Allocator>& arg_list)
+         explicit vararg_varnode(const Sequence<expression_ptr,Allocator>& arg_list)
          {
             arg_list_.resize(arg_list.size());
 
@@ -9541,7 +9541,7 @@ namespace exprtk
 
          typedef expression_node<T>* expression_ptr;
 
-         vectorize_node(const expression_ptr v)
+         explicit vectorize_node(const expression_ptr v)
          : ivec_ptr_(0),
            v_(v),
            v_deletable_(branch_deletable(v_))
@@ -10330,16 +10330,16 @@ namespace exprtk
                binary_node<T>::branch_[0].first->value();
                binary_node<T>::branch_[1].first->value();
 
-               T* vec0 = vec0_node_ptr_->vds().data();
-               T* vec1 = vec1_node_ptr_->vds().data();
+                     T* vec0 = vec0_node_ptr_->vds().data();
+               const T* vec1 = vec1_node_ptr_->vds().data();
 
                loop_unroll::details lud(size());
                const T* upper_bound = vec0 + lud.upper_bound;
 
                while (vec0 < upper_bound)
                {
-                  #define exprtk_loop(N)                         \
-                  vec0[N] = Operation::process(vec0[N],vec1[N]); \
+                  #define exprtk_loop(N)                          \
+                  vec0[N] = Operation::process(vec0[N], vec1[N]); \
 
                   exprtk_loop( 0) exprtk_loop( 1)
                   exprtk_loop( 2) exprtk_loop( 3)
@@ -10361,8 +10361,8 @@ namespace exprtk
                exprtk_disable_fallthrough_begin
                switch (lud.remainder)
                {
-                  #define case_stmt(N)                                             \
-                  case N : { vec0[i] = Operation::process(vec0[i],vec1[i]); ++i; } \
+                  #define case_stmt(N)                                              \
+                  case N : { vec0[i] = Operation::process(vec0[i], vec1[i]); ++i; } \
 
                   #ifndef exprtk_disable_superscalar_unroll
                   case_stmt(15) case_stmt(14)
@@ -10515,17 +10515,17 @@ namespace exprtk
                binary_node<T>::branch_[0].first->value();
                binary_node<T>::branch_[1].first->value();
 
-               T* vec0 = vec0_node_ptr_->vds().data();
-               T* vec1 = vec1_node_ptr_->vds().data();
-               T* vec2 = vds().data();
+               const T* vec0 = vec0_node_ptr_->vds().data();
+               const T* vec1 = vec1_node_ptr_->vds().data();
+                     T* vec2 = vds().data();
 
                loop_unroll::details lud(size());
                const T* upper_bound = vec2 + lud.upper_bound;
 
                while (vec2 < upper_bound)
                {
-                  #define exprtk_loop(N)                         \
-                  vec2[N] = Operation::process(vec0[N],vec1[N]); \
+                  #define exprtk_loop(N)                          \
+                  vec2[N] = Operation::process(vec0[N], vec1[N]); \
 
                   exprtk_loop( 0) exprtk_loop( 1)
                   exprtk_loop( 2) exprtk_loop( 3)
@@ -10548,8 +10548,8 @@ namespace exprtk
                exprtk_disable_fallthrough_begin
                switch (lud.remainder)
                {
-                  #define case_stmt(N)                                             \
-                  case N : { vec2[i] = Operation::process(vec0[i],vec1[i]); ++i; } \
+                  #define case_stmt(N)                                              \
+                  case N : { vec2[i] = Operation::process(vec0[i], vec1[i]); ++i; } \
 
                   #ifndef exprtk_disable_superscalar_unroll
                   case_stmt(15) case_stmt(14)
@@ -10674,16 +10674,16 @@ namespace exprtk
                            binary_node<T>::branch_[0].first->value();
                const T v = binary_node<T>::branch_[1].first->value();
 
-               T* vec0 = vec0_node_ptr_->vds().data();
-               T* vec1 = vds().data();
+               const T* vec0 = vec0_node_ptr_->vds().data();
+                     T* vec1 = vds().data();
 
                loop_unroll::details lud(size());
                const T* upper_bound = vec0 + lud.upper_bound;
 
                while (vec0 < upper_bound)
                {
-                  #define exprtk_loop(N)                   \
-                  vec1[N] = Operation::process(vec0[N],v); \
+                  #define exprtk_loop(N)                    \
+                  vec1[N] = Operation::process(vec0[N], v); \
 
                   exprtk_loop( 0) exprtk_loop( 1)
                   exprtk_loop( 2) exprtk_loop( 3)
@@ -10705,8 +10705,8 @@ namespace exprtk
                exprtk_disable_fallthrough_begin
                switch (lud.remainder)
                {
-                  #define case_stmt(N)                                       \
-                  case N : { vec1[i] = Operation::process(vec0[i],v); ++i; } \
+                  #define case_stmt(N)                                        \
+                  case N : { vec1[i] = Operation::process(vec0[i], v); ++i; } \
 
                   #ifndef exprtk_disable_superscalar_unroll
                   case_stmt(15) case_stmt(14)
@@ -10829,16 +10829,16 @@ namespace exprtk
                const T v = binary_node<T>::branch_[0].first->value();
                            binary_node<T>::branch_[1].first->value();
 
-               T* vec0 = vds().data();
-               T* vec1 = vec1_node_ptr_->vds().data();
+                     T* vec0 = vds().data();
+               const T* vec1 = vec1_node_ptr_->vds().data();
 
                loop_unroll::details lud(size());
                const T* upper_bound = vec0 + lud.upper_bound;
 
                while (vec0 < upper_bound)
                {
-                  #define exprtk_loop(N)                   \
-                  vec0[N] = Operation::process(v,vec1[N]); \
+                  #define exprtk_loop(N)                    \
+                  vec0[N] = Operation::process(v, vec1[N]); \
 
                   exprtk_loop( 0) exprtk_loop( 1)
                   exprtk_loop( 2) exprtk_loop( 3)
@@ -10860,8 +10860,8 @@ namespace exprtk
                exprtk_disable_fallthrough_begin
                switch (lud.remainder)
                {
-                  #define case_stmt(N)                                       \
-                  case N : { vec0[i] = Operation::process(v,vec1[i]); ++i; } \
+                  #define case_stmt(N)                                        \
+                  case N : { vec0[i] = Operation::process(v, vec1[i]); ++i; } \
 
                   #ifndef exprtk_disable_superscalar_unroll
                   case_stmt(15) case_stmt(14)
@@ -10981,8 +10981,8 @@ namespace exprtk
 
             if (vec0_node_ptr_)
             {
-               T* vec0 = vec0_node_ptr_->vds().data();
-               T* vec1 = vds().data();
+               const T* vec0 = vec0_node_ptr_->vds().data();
+                     T* vec1 = vds().data();
 
                loop_unroll::details lud(size());
                const T* upper_bound = vec0 + lud.upper_bound;
@@ -11133,7 +11133,7 @@ namespace exprtk
          typedef std::pair<expression_ptr,bool> branch_t;
          typedef IFunction ifunction;
 
-         function_N_node(ifunction* func)
+         explicit function_N_node(ifunction* func)
          : function_((N == func->param_count) ? func : reinterpret_cast<ifunction*>(0)),
            parameter_count_(func->param_count)
          {}
@@ -11424,7 +11424,7 @@ namespace exprtk
          typedef expression_node<T>* expression_ptr;
          typedef IFunction ifunction;
 
-         function_N_node(ifunction* func)
+         explicit function_N_node(ifunction* func)
          : function_((0 == func->param_count) ? func : reinterpret_cast<ifunction*>(0))
          {}
 
@@ -16150,7 +16150,7 @@ namespace exprtk
        {
           using exprtk::ifunction<T>::operator();
 
-          freefunc00(ff00_functor ff) : exprtk::ifunction<T>(0), f(ff) {}
+          explicit freefunc00(ff00_functor ff) : exprtk::ifunction<T>(0), f(ff) {}
           inline T operator() ()
           { return f(); }
           ff00_functor f;
@@ -16160,7 +16160,7 @@ namespace exprtk
       {
          using exprtk::ifunction<T>::operator();
 
-         freefunc01(ff01_functor ff) : exprtk::ifunction<T>(1), f(ff) {}
+         explicit freefunc01(ff01_functor ff) : exprtk::ifunction<T>(1), f(ff) {}
          inline T operator() (const T& v0)
          { return f(v0); }
          ff01_functor f;
@@ -16170,7 +16170,7 @@ namespace exprtk
       {
          using exprtk::ifunction<T>::operator();
 
-         freefunc02(ff02_functor ff) : exprtk::ifunction<T>(2), f(ff) {}
+         explicit freefunc02(ff02_functor ff) : exprtk::ifunction<T>(2), f(ff) {}
          inline T operator() (const T& v0, const T& v1)
          { return f(v0, v1); }
          ff02_functor f;
@@ -16180,7 +16180,7 @@ namespace exprtk
       {
          using exprtk::ifunction<T>::operator();
 
-         freefunc03(ff03_functor ff) : exprtk::ifunction<T>(3), f(ff) {}
+         explicit freefunc03(ff03_functor ff) : exprtk::ifunction<T>(3), f(ff) {}
          inline T operator() (const T& v0, const T& v1, const T& v2)
          { return f(v0, v1, v2); }
          ff03_functor f;
@@ -16190,7 +16190,7 @@ namespace exprtk
       {
          using exprtk::ifunction<T>::operator();
 
-         freefunc04(ff04_functor ff) : exprtk::ifunction<T>(4), f(ff) {}
+         explicit freefunc04(ff04_functor ff) : exprtk::ifunction<T>(4), f(ff) {}
          inline T operator() (const T& v0, const T& v1, const T& v2, const T& v3)
          { return f(v0, v1, v2, v3); }
          ff04_functor f;
@@ -16200,7 +16200,7 @@ namespace exprtk
       {
          using exprtk::ifunction<T>::operator();
 
-         freefunc05(ff05_functor ff) : exprtk::ifunction<T>(5), f(ff) {}
+         explicit freefunc05(ff05_functor ff) : exprtk::ifunction<T>(5), f(ff) {}
          inline T operator() (const T& v0, const T& v1, const T& v2, const T& v3, const T& v4)
          { return f(v0, v1, v2, v3, v4); }
          ff05_functor f;
@@ -16210,7 +16210,7 @@ namespace exprtk
       {
          using exprtk::ifunction<T>::operator();
 
-         freefunc06(ff06_functor ff) : exprtk::ifunction<T>(6), f(ff) {}
+         explicit freefunc06(ff06_functor ff) : exprtk::ifunction<T>(6), f(ff) {}
          inline T operator() (const T& v0, const T& v1, const T& v2, const T& v3, const T& v4, const T& v5)
          { return f(v0, v1, v2, v3, v4, v5); }
          ff06_functor f;
@@ -16220,7 +16220,7 @@ namespace exprtk
       {
          using exprtk::ifunction<T>::operator();
 
-         freefunc07(ff07_functor ff) : exprtk::ifunction<T>(7), f(ff) {}
+         explicit freefunc07(ff07_functor ff) : exprtk::ifunction<T>(7), f(ff) {}
          inline T operator() (const T& v0, const T& v1, const T& v2, const T& v3, const T& v4,
                               const T& v5, const T& v6)
          { return f(v0, v1, v2, v3, v4, v5, v6); }
@@ -16231,7 +16231,7 @@ namespace exprtk
       {
          using exprtk::ifunction<T>::operator();
 
-         freefunc08(ff08_functor ff) : exprtk::ifunction<T>(8), f(ff) {}
+         explicit freefunc08(ff08_functor ff) : exprtk::ifunction<T>(8), f(ff) {}
          inline T operator() (const T& v0, const T& v1, const T& v2, const T& v3, const T& v4,
                               const T& v5, const T& v6, const T& v7)
          { return f(v0, v1, v2, v3, v4, v5, v6, v7); }
@@ -16242,7 +16242,7 @@ namespace exprtk
       {
          using exprtk::ifunction<T>::operator();
 
-         freefunc09(ff09_functor ff) : exprtk::ifunction<T>(9), f(ff) {}
+         explicit freefunc09(ff09_functor ff) : exprtk::ifunction<T>(9), f(ff) {}
          inline T operator() (const T& v0, const T& v1, const T& v2, const T& v3, const T& v4,
                               const T& v5, const T& v6, const T& v7, const T& v8)
          { return f(v0, v1, v2, v3, v4, v5, v6, v7, v8); }
@@ -16253,7 +16253,7 @@ namespace exprtk
       {
          using exprtk::ifunction<T>::operator();
 
-         freefunc10(ff10_functor ff) : exprtk::ifunction<T>(10), f(ff) {}
+         explicit freefunc10(ff10_functor ff) : exprtk::ifunction<T>(10), f(ff) {}
          inline T operator() (const T& v0, const T& v1, const T& v2, const T& v3, const T& v4,
                               const T& v5, const T& v6, const T& v7, const T& v8, const T& v9)
          { return f(v0, v1, v2, v3, v4, v5, v6, v7, v8, v9); }
@@ -16264,7 +16264,7 @@ namespace exprtk
       {
          using exprtk::ifunction<T>::operator();
 
-         freefunc11(ff11_functor ff) : exprtk::ifunction<T>(11), f(ff) {}
+         explicit freefunc11(ff11_functor ff) : exprtk::ifunction<T>(11), f(ff) {}
          inline T operator() (const T& v0, const T& v1, const T& v2, const T& v3, const T& v4,
                               const T& v5, const T& v6, const T& v7, const T& v8, const T& v9, const T& v10)
          { return f(v0, v1, v2, v3, v4, v5, v6, v7, v8, v9, v10); }
@@ -16275,7 +16275,7 @@ namespace exprtk
       {
          using exprtk::ifunction<T>::operator();
 
-         freefunc12(ff12_functor ff) : exprtk::ifunction<T>(12), f(ff) {}
+         explicit freefunc12(ff12_functor ff) : exprtk::ifunction<T>(12), f(ff) {}
          inline T operator() (const T& v00, const T& v01, const T& v02, const T& v03, const T& v04,
                               const T& v05, const T& v06, const T& v07, const T& v08, const T& v09,
                               const T& v10, const T& v11)
@@ -16287,7 +16287,7 @@ namespace exprtk
       {
          using exprtk::ifunction<T>::operator();
 
-         freefunc13(ff13_functor ff) : exprtk::ifunction<T>(13), f(ff) {}
+         explicit freefunc13(ff13_functor ff) : exprtk::ifunction<T>(13), f(ff) {}
          inline T operator() (const T& v00, const T& v01, const T& v02, const T& v03, const T& v04,
                               const T& v05, const T& v06, const T& v07, const T& v08, const T& v09,
                               const T& v10, const T& v11, const T& v12)
@@ -16299,7 +16299,7 @@ namespace exprtk
       {
          using exprtk::ifunction<T>::operator();
 
-         freefunc14(ff14_functor ff) : exprtk::ifunction<T>(14), f(ff) {}
+         explicit freefunc14(ff14_functor ff) : exprtk::ifunction<T>(14), f(ff) {}
          inline T operator() (const T& v00, const T& v01, const T& v02, const T& v03, const T& v04,
                               const T& v05, const T& v06, const T& v07, const T& v08, const T& v09,
                               const T& v10, const T& v11, const T& v12, const T& v13)
@@ -16311,7 +16311,7 @@ namespace exprtk
       {
          using exprtk::ifunction<T>::operator();
 
-         freefunc15(ff15_functor ff) : exprtk::ifunction<T>(15), f(ff) {}
+         explicit freefunc15(ff15_functor ff) : exprtk::ifunction<T>(15), f(ff) {}
          inline T operator() (const T& v00, const T& v01, const T& v02, const T& v03, const T& v04,
                               const T& v05, const T& v06, const T& v07, const T& v08, const T& v09,
                               const T& v10, const T& v11, const T& v12, const T& v13, const T& v14)
@@ -16785,7 +16785,7 @@ namespace exprtk
            data_(st_data::create())
          {}
 
-         control_block(st_data* data)
+         explicit control_block(st_data* data)
          : ref_count(1),
            data_(data)
          {}
@@ -17794,7 +17794,7 @@ namespace exprtk
            return_invoked(&retinv_null)
          {}
 
-         control_block(expression_ptr e)
+         explicit control_block(expression_ptr e)
          : ref_count(1),
            expr     (e),
            results  (0),
@@ -17887,7 +17887,7 @@ namespace exprtk
          control_block_->ref_count++;
       }
 
-      expression(const symbol_table<T>& symbol_table)
+      explicit expression(const symbol_table<T>& symbol_table)
       : control_block_(0)
       {
          set_expression(new details::null_node<T>());
@@ -18508,7 +18508,7 @@ namespace exprtk
          typedef variable_node_t*     variable_node_ptr;
          typedef parser<T>                     parser_t;
 
-         scope_element_manager(parser<T>& p)
+         explicit scope_element_manager(parser<T>& p)
          : parser_(p),
            input_param_cnt_(0)
          {}
@@ -18705,7 +18705,7 @@ namespace exprtk
 
          typedef parser<T> parser_t;
 
-         scope_handler(parser<T>& p)
+         explicit scope_handler(parser<T>& p)
          : parser_(p)
          {
             parser_.state_.scope_depth++;
@@ -20532,8 +20532,6 @@ namespace exprtk
          std::vector<expression_node_ptr> arg_list;
          std::vector<bool> side_effect_list;
 
-         expression_node_ptr result = error_node();
-
          scoped_vec_delete<expression_node_t> sdd((*this),arg_list);
 
          lexer::token begin_token;
@@ -20600,7 +20598,7 @@ namespace exprtk
             dec_.final_stmt_return_ = true;
          }
 
-         result = simplify(arg_list,side_effect_list);
+         const expression_node_ptr result = simplify(arg_list,side_effect_list);
 
          sdd.delete_ptr = (0 == result);
 
@@ -21050,7 +21048,7 @@ namespace exprtk
 
       struct scoped_bool_negator
       {
-         scoped_bool_negator(bool& bb)
+         explicit scoped_bool_negator(bool& bb)
          : b(bb)
          { b = !b; }
 
@@ -21062,7 +21060,7 @@ namespace exprtk
 
       struct scoped_bool_or_restorer
       {
-         scoped_bool_or_restorer(bool& bb)
+         explicit scoped_bool_or_restorer(bool& bb)
          : b(bb),
            original_value_(bb)
          {}
@@ -22405,7 +22403,6 @@ namespace exprtk
       inline expression_node_ptr parse_multi_switch_statement()
       {
          std::vector<expression_node_ptr> arg_list;
-         expression_node_ptr result = error_node();
 
          if (!details::imatch(current_token().value,"[*]"))
          {
@@ -22509,7 +22506,7 @@ namespace exprtk
             return error_node();
          }
 
-         result = expression_generator_.multi_switch_statement(arg_list);
+         const expression_node_ptr result = expression_generator_.multi_switch_statement(arg_list);
 
          svd.delete_ptr = (0 == result);
 
@@ -22519,7 +22516,6 @@ namespace exprtk
       inline expression_node_ptr parse_vararg_function()
       {
          std::vector<expression_node_ptr> arg_list;
-         expression_node_ptr result = error_node();
 
          details::operator_type opt_type = details::e_default;
          const std::string symbol = current_token().value;
@@ -22591,7 +22587,7 @@ namespace exprtk
             }
          }
 
-         result = expression_generator_.vararg_function(opt_type,arg_list);
+         const expression_node_ptr result = expression_generator_.vararg_function(opt_type,arg_list);
 
          sdd.delete_ptr = (0 == result);
          return result;
@@ -22809,7 +22805,7 @@ namespace exprtk
             if (token_is(close_bracket))
                break;
 
-            bool is_next_close = peek_token_is(close_bracket);
+            const bool is_next_close = peek_token_is(close_bracket);
 
             if (!token_is(seperator) && is_next_close)
             {
@@ -24340,7 +24336,7 @@ namespace exprtk
                   if (token_is(token_t::e_rcrlbracket))
                      break;
 
-                  bool is_next_close = peek_token_is(token_t::e_rcrlbracket);
+                  const bool is_next_close = peek_token_is(token_t::e_rcrlbracket);
 
                   if (!token_is(token_t::e_comma) && is_next_close)
                   {
@@ -30450,7 +30446,7 @@ namespace exprtk
 
                const bool synthesis_result =
                   synthesize_sf3ext_expression::template compile<ctype, vtype, ctype>
-                     (expr_gen, id(expr_gen, o0, o1), c0, v, c1,result);
+                     (expr_gen, id(expr_gen, o0, o1), c0, v, c1, result);
 
                if (synthesis_result)
                   return result;
@@ -30946,7 +30942,7 @@ namespace exprtk
 
                const bool synthesis_result =
                   synthesize_sf4ext_expression::template compile<T0, T1, T2, T3>
-                     (expr_gen, id(expr_gen, o0, o1, o2), v0, v1, v2, v3,result);
+                     (expr_gen, id(expr_gen, o0, o1, o2), v0, v1, v2, v3, result);
 
                if (synthesis_result)
                   return result;
@@ -34847,8 +34843,8 @@ namespace exprtk
 
             typedef typename details::null_eq_node<T> nulleq_node_t;
 
-            bool b0_null = details::is_null_node(branch[0]);
-            bool b1_null = details::is_null_node(branch[1]);
+            const bool b0_null = details::is_null_node(branch[0]);
+            const bool b1_null = details::is_null_node(branch[1]);
 
             if (b0_null && b1_null)
             {
@@ -35521,7 +35517,7 @@ namespace exprtk
       {
          T& x = var->ref();
          T  x_original = x;
-         T result = integrate(e,x,r0,r1,number_of_intervals);
+         T result = integrate(e, x, r0, r1, number_of_intervals);
          x = x_original;
 
          return result;
@@ -35612,7 +35608,7 @@ namespace exprtk
       {
          T& x = var->ref();
          T x_original = x;
-         T result = derivative(e,x,h);
+         T result = derivative(e, x, h);
          x = x_original;
 
          return result;
@@ -35639,7 +35635,7 @@ namespace exprtk
       {
          T& x = var->ref();
          const T x_original = x;
-         const T result = second_derivative(e,x,h);
+         const T result = second_derivative(e, x, h);
          x = x_original;
 
          return result;
@@ -35666,7 +35662,7 @@ namespace exprtk
       {
          T& x = var->ref();
          const T x_original = x;
-         const T result = third_derivative(e,x,h);
+         const T result = third_derivative(e, x, h);
          x = x_original;
 
          return result;
