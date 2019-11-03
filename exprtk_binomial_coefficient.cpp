@@ -65,11 +65,11 @@ void n_choose_r()
          ));
 
    const std::string ncr_program =
-                     " var n := 25;                    "
-                     " for (var r := 1; r < n; r += 1) "
-                     " {                               "
-                     "   println(n, r, ncr(n,r));      "
-                     " };                              ";
+                  " var n := 25;                    "
+                  " for (var r := 1; r < n; r += 1) "
+                  " {                               "
+                  "   println(n, r, ncr(n,r));      "
+                  " };                              ";
 
    expression_t expression;
    expression.register_symbol_table(symbol_table);
